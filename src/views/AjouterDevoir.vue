@@ -36,8 +36,9 @@ export default {
   },
   methods: {
     async ajouter() {
+        const API_URL = import.meta.env.VITE_API_URL
       try {
-        const res = await fetch('http://localhost:3000/api/tasks', {
+        const res = await fetch(`${API_URL}/api/tasks`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

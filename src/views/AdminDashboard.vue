@@ -43,7 +43,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
-
+const API_URL = import.meta.env.VITE_API_URL
 const router = useRouter()
 const auth = useAuthStore()
 
@@ -61,7 +61,7 @@ const message = ref('')
 
 const creerUtilisateur = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/users/register', {
+    const res = await fetch(`${API_URL}/api/users/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

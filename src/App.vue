@@ -19,8 +19,9 @@ export default {
     }
   },
   async mounted() {
+    const API_URL = import.meta.env.VITE_API_URL
     try {
-      const res = await fetch('http://localhost:3000/')
+      const res = await fetch(`${API_URL}/`)
       const text = await res.text()
       this.message = text
     } catch (err) {

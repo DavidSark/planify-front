@@ -39,7 +39,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
-
+const API_URL = import.meta.env.VITE_API_URL
 const auth = useAuthStore()
 const router = useRouter()
 const devoirs = ref([])
@@ -62,7 +62,7 @@ const logout = () => {
 
 onMounted(async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/tasks/mes-devoirs', {
+    const res = await fetch(`${API_URL}/api/tasks/mes-devoirs`, {
       headers: {
         'Authorization': auth.token
       }
